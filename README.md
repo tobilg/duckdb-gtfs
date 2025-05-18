@@ -29,13 +29,13 @@ The database will be written to `exported-data/providers/gtfs-de/full/data.duckd
 Once this is done, you can open the DuckDB CLI to query the data:
 
 ```bash
-$ duckdb exported-data/providers/gtfs-de/full/data.duckdb
+duckdb exported-data/providers/gtfs-de/full/data.duckdb
 ```
 
 ### Creating a "view database"
 DuckDB can also be used to create a lightweight "view database" that contains only references to the actual data, hosted on object storage like S3 or R2.
 
-The process to create such a "view" database consists of four main steps:
+The process to create such a "view database" consists of four main steps:
 
 1. Exporting the data from a database as Parquet files.
 2. Uploading the exported Parquet files to an object storage service.
