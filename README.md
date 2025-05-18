@@ -49,3 +49,7 @@ With our example dataset, if the above steps to create the basic database have b
 3. Edit the `scripts/providers/gtfs-de/full/create_view_database.sh` script to match the location of your object storage uploads, and run the script.
 4. Upload the resulting database file [exported-data/providers/gtfs-de/full/database.duckdb](exported-data/providers/gtfs-de/full/database.duckdb) to your object storage as well.
 
+The resulting DuckDB database file will be around 250kb in size, and contains no actual data, but references to the data on object storage via views. 
+
+You can access the generated example database via [SQL Workbench](https://sql-workbench.com/#queries=v0,ATTACH-'https%3A%2F%2Fdata.openrailway.dev%2Fproviders%2Fgtfs%20de%2Ffull%2Fdatabase.duckdb'-as-gtfs_de_full-(READ_ONLY)~,SELECT-count(*)%3A%3AINT-AS-cnt-FROM-gtfs_de_full.stop_times~).
+
