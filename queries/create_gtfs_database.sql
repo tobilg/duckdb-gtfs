@@ -88,8 +88,7 @@ CREATE TABLE stops (
     wheelchair_boarding INTEGER,
     level_id TEXT,
     platform_code TEXT,
-    FOREIGN KEY (level_id) REFERENCES levels(level_id),
-    FOREIGN KEY (parent_station) REFERENCES stops(stop_id)
+    FOREIGN KEY (level_id) REFERENCES levels(level_id)
 );
 
 -- routes.txt
@@ -156,7 +155,8 @@ CREATE TABLE calendar_dates (
     service_id TEXT NOT NULL,
     "date" DATE NOT NULL,
     exception_type INTEGER NOT NULL,
-    FOREIGN KEY (service_id) REFERENCES calendar(service_id)
+    PRIMARY KEY (service_id, "date")
+    --FOREIGN KEY (service_id) REFERENCES calendar(service_id) -- Foreign key reference is optional according to the GTFS spec
 );
 
 -- fare_attributes.txt
