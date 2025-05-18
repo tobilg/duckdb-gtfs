@@ -1,11 +1,14 @@
-INSERT INTO agency (agency_id,agency_name,agency_url,agency_timezone,agency_lang) SELECT * FROM read_csv('source-data/providers/gtfs-de/full/agency.txt', delim = ',', header = true);
+INSERT INTO agency (agency_id,agency_name,agency_url,agency_timezone,agency_lang) 
+SELECT * FROM read_csv('source-data/providers/gtfs-de/full/agency.txt', delim = ',', header = true);
 
-INSERT INTO attributions (attribution_id,organization_name,is_producer,attribution_url,attribution_email) SELECT * FROM read_csv('source-data/providers/gtfs-de/full/attributions.txt', delim = ',', header = true);
+INSERT INTO attributions (attribution_id,organization_name,is_producer,attribution_url,attribution_email) 
+SELECT * FROM read_csv('source-data/providers/gtfs-de/full/attributions.txt', delim = ',', header = true);
 
 INSERT INTO calendar (monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date,service_id) 
 SELECT * FROM read_csv('source-data/providers/gtfs-de/full/calendar.txt', delim = ',', header = true, dateformat = '%Y%m%d');
 
-INSERT INTO calendar_dates (service_id,exception_type,"date") SELECT * FROM read_csv('source-data/providers/gtfs-de/full/calendar_dates.txt', delim = ',', header = true, columns = {
+INSERT INTO calendar_dates (service_id,exception_type,"date") 
+SELECT * FROM read_csv('source-data/providers/gtfs-de/full/calendar_dates.txt', delim = ',', header = true, columns = {
   'service_id': 'VARCHAR',
   'exception_type': 'INTEGER',
   'date': 'DATE'
