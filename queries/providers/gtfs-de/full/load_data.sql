@@ -27,4 +27,4 @@ INSERT INTO stops (stop_name,parent_station,stop_id,stop_lat,stop_lon,location_t
 SELECT * FROM read_csv('source-data/providers/gtfs-de/full/stops.txt', delim = ',', header = true);
 
 INSERT INTO stop_times (trip_id,arrival_time,departure_time,stop_id,stop_sequence,pickup_type,drop_off_type) 
-SELECT * FROM read_csv('source-data/providers/gtfs-de/full/stop_times.txt', delim = ',', header = true, ignore_errors = true);
+SELECT trip_id,arrival_time,departure_time,stop_id,stop_sequence,pickup_type,drop_off_type FROM read_csv('source-data/providers/gtfs-de/full/stop_times.txt', delim = ',', header = true, ignore_errors = true);
